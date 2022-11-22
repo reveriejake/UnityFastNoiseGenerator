@@ -1,0 +1,38 @@
+/*  Creates a 1D array of noise values when provided with a 2D width and noise params.
+ * To be used in conjunction with FastNoiseLite HLSL. https://github.com/Auburn/FastNoise
+ *
+ *  Created by: Jacob Fletcher
+ */
+
+#pragma kernel CSNoiseArray
+
+#include "Include/PicoFastNoiseUtils.hlsl"
+
+StructuredBuffer<FastNoiseParams> NoiseParamsBuffer;
+RWBuffer<float> ResultBuffer;
+
+int _ArrayWidth;
+float  _SampleWidth;
+float2 _SampleOrigin;
+float2 _NoiseOrigin;
+
+float2 GetWSPosition(int x, int y) {
+
+	float stride = _SampleWidth / (_ArrayWidth - 1.0);
+	float xWS = ((x * stride) + _SampleOrigin.x);
+	float yWS = ((y * stride) + _SampleOrigin.y);
+
+	return float2(xWS, yWS);
+}
+
+[numthreads(8,8,1)]
+void CSNoiseArray(int3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _ArrayWidth || id.y >= _ArrayWidth)
+		return;
+
+	float2 pos = GetWSPosition(id.x, id.y);
+	float value = GetCompositeNoise01(pos, _NoiseOrigin, NoiseParamsBuffer);
+
+	ResultBuffer[id.x + id.y * _ArrayWidth] = value;
+}

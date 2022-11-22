@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8636197416053902173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8636197416053902175}
+  - component: {fileID: 8636197416053902174}
+  - component: {fileID: 8636197416053902168}
+  m_Layer: 0
+  m_Name: ChunkTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8636197416053902175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8636197416053902173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8636197416053902174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8636197416053902173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918a435a7874e484b9f9e89b5fd3c67a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patchEdgeCount: 256
+  patchEdgeSize: 1
+  heightScale: 150
+  surfaceMaterial: {fileID: 2100000, guid: 96485424442d314429145b0151b2d9ea, type: 2}
+  noiseGen: {fileID: 0}
+  noiseParams:
+  - seed: 4965
+    weight: 1
+    offset: {x: 25000, y: 25000}
+    noiseType: 0
+    frequency: 0.0005
+    fractalType: 2
+    octaves: 10
+    lacunarity: 2
+    gain: 0.5
+--- !u!114 &8636197416053902168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8636197416053902173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c448af08e2294c44d9ed3adfd851f23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csFastNoise: {fileID: 7200000, guid: e5ac85d9b919b8a418fbb960d054bc80, type: 3}
