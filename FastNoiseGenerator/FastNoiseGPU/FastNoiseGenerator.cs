@@ -53,7 +53,7 @@ namespace PicoGames.FastNoise
             if (noiseParamsBuffer == null || noiseParamsBuffer.count != noiseParams.Length)
             {
                 noiseParamsBuffer?.Release();
-                noiseParamsBuffer = new ComputeBuffer(noiseParams.Length, FastNoiseLayer.FastNoiseParams.GetStride());
+                noiseParamsBuffer = new ComputeBuffer(noiseParams.Length, FastNoiseParams.GetStride());
             }
                 
             noiseParamsBuffer.SetData(noiseParams);
